@@ -1,0 +1,55 @@
+package Diziler;
+import java.util.Scanner;
+
+public class Maksimum_Ve_Minumum {
+    public static void main(String[] args) {
+        int x;
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Lütfen bir sayı giriniz = ");
+        x = input.nextInt();
+
+        int [] list = {56, 34, 62, 24, 56, 17, -74, -81};
+        System.out.print("Dizi elemanları = ");
+        for (int i = 0; i<list.length ; i++){
+            System.out.print(list[i]);
+            if (i < list.length - 1) {
+                System.out.print(", ");
+            }
+        }System.out.println("]");
+
+        int min = list[0];
+        int max = list[0];
+
+        for (int i : list) {
+            if (i < min) {
+                min = i;
+            }
+            if (i > max) {
+                max = i;
+            }
+        }
+
+            int kucukYakin = min;
+            int buyukYakin = max;
+        for (int i = 0; i < list.length; i++) {
+            if (list[i] < x) {
+                if (x - list[i] < x - kucukYakin) {
+                    kucukYakin = list[i];
+                }
+            }
+            if (list[i] > x) {
+                if (list[i] - x < buyukYakin - x) {
+                    buyukYakin = list[i];
+                }
+            }
+        }
+
+        System.out.println(x+ " sayısından büyük en yakın sayı = " + buyukYakin);
+        System.out.println(x+ " sayısından küçük en yakın sayı = " + kucukYakin);
+
+
+
+
+    }
+}
